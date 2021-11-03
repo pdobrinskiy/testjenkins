@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:latest' } }
+    agent { docker { image 'mjbobkov/pythonwork:1.0' } }
     stages {
         stage('build') {
             steps {
