@@ -1,5 +1,5 @@
 # hello.py
 
-import pprint from pprint
+from pprint import pprint 
 
 pprint ("hello.world")
