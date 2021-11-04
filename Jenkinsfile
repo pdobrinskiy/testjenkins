@@ -17,8 +17,8 @@ pipeline {
      stage('Plan') {
            agent { docker { image 'hashicorp/terraform:latest' } }
             steps {
-                sh 'terraform init'
-                sh 'terraform plan'
+                sh 'init'
+                sh 'plan'
             }
         }
   }
