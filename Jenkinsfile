@@ -19,7 +19,7 @@ pipeline {
                            args "-it --entrypoint=''"
                           } }
             steps {
-                sh 'version'
+                sh 'terraform version'
             }
         }
   }
