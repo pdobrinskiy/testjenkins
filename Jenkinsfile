@@ -16,6 +16,7 @@ pipeline {
     
      stage('Plan') {
            agent { docker { image 'hashicorp/terraform:latest' 
+                           rgs "-it --entrypoint=''"
                           } }
             steps {
                 sh 'version'
