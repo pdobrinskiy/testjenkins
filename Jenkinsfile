@@ -21,7 +21,9 @@ pipeline {
             steps {
                 sh 'terraform version'
                 sh 'terraform init'
-                sh 'terraform plan'
+                sh 'terraform plan -out=plan.tfplan -input=false'
+                sh 'terraform show -no-color plan.tfplan > plan.txt'
+                sh 'terraform show -json plan.tfplan > plan.json'
             }
         }
   }
