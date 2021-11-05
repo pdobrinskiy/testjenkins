@@ -15,10 +15,13 @@ pipeline {
         }
     
      stage('Plan') {
-           agent { docker { image 'hashicorp/terraform:latest' } }
+           agent { docker { image 'hashicorp/terraform:latest' 
+                          args '-it --entrypoint=/bin/bash'
+                          label 'support_ubuntu_docker'
+                          } }
             steps {
-                sh 'init'
-                sh 'plan'
+                sh 'terraform init'
+                sh 'terraform plan'
             }
         }
   }
