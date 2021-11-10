@@ -47,5 +47,6 @@ def uploadSpec =
   ]
 }"""
 server.upload(uploadSpec)
+    }
   }
 }
