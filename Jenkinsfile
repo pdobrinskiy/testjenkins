@@ -25,14 +25,14 @@ pipeline {
                 sh 'terraform plan -out=plan.tfplan -input=false'
                 sh 'terraform show -no-color plan.tfplan > plan.txt'
                 sh 'terraform show -json plan.tfplan > plan.json'
-                stash name: "first-stash", includes: "plan.txt"
+ #               stash name: "first-stash", includes: "plan.txt"
 
             }
         }
     
     stage('push_to_Artifactory') {
       steps {
-        unstash "first-stash"
+#        unstash "first-stash"
         script {
              def server = Artifactory.server 'aaz'
 
