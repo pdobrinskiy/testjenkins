@@ -1,4 +1,3 @@
-def server = Artifactory.server 'aaz'
 
 pipeline {
   agent any
@@ -28,5 +27,25 @@ pipeline {
                 sh 'terraform show -json plan.tfplan > plan.json'
             }
         }
+    
+    stage('push_to_Artifactory') {
+    def server = Artifactory.server 'aaz'
+
+def uploadSpec = 
+"""
+{
+"files": [
+    {
+        "pattern": "*/target/*.jar",
+        "target": "SCA_Test"
+    },
+     {
+        "pattern": "*.tf",
+        "target": "jfrogrepo"
+      }
+
+  ]
+}"""
+server.upload(uploadSpec)
   }
 }
