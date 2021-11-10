@@ -46,7 +46,9 @@ def uploadSpec =
 
   ]
 }"""
-server.upload(uploadSpec)
+       steps {
+         script { server.upload(uploadSpec) }
+       }
     }
   }
 }
