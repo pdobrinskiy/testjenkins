@@ -1,3 +1,5 @@
+def server = Artifactory.server 'aaz'
+
 pipeline {
   agent any
   stages {
