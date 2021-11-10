@@ -29,16 +29,14 @@ pipeline {
         }
     
     stage('push_to_Artifactory') {
-    def server = Artifactory.server 'aaz'
+      steps {
+        script {
+             def server = Artifactory.server 'aaz'
 
 def uploadSpec = 
 """
 {
 "files": [
-    {
-        "pattern": "*/target/*.jar",
-        "target": "SCA_Test"
-    },
      {
         "pattern": "*.tf",
         "target": "jfrogrepo"
@@ -46,9 +44,9 @@ def uploadSpec =
 
   ]
 }"""
-       steps {
-         script { server.upload(uploadSpec) }
-       }
+         server.upload(uploadSpec) 
+    }
     }
   }
+}
 }
