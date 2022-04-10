@@ -10,7 +10,7 @@ pipeline {
         }
     
      stage('Plan') {
-           agent { kubernetes }
+           agent {  label 'terraform'  }
             steps {
                 sh 'terraform version'
                 sh 'terraform init'
