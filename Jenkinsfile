@@ -1,16 +1,16 @@
 
 pipeline {
-  agent {terraform}
+  agent {kubernetes}
   stages {
      stage('Build') {
-           agent { terraform }
+           agent { kubernetes }
             steps {
                 sh 'python hello.py'
             }
         }
     
      stage('Plan') {
-           agent { terraform }
+           agent { kubernetes }
             steps {
                 sh 'terraform version'
                 sh 'terraform init'
