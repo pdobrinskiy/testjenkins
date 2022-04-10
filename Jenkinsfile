@@ -3,7 +3,7 @@ pipeline {
   agent { label 'terraform' }
   stages {
      stage('Build') {
-           agent { kubernetes }
+           agent { label 'terraform' }
             steps {
                 sh 'python hello.py'
             }
