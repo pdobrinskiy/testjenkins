@@ -1,6 +1,6 @@
 
 pipeline {
-  agent {kubernetes}
+  agent { label 'terraform' }
   stages {
      stage('Build') {
            agent { kubernetes }
